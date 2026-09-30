@@ -1,7 +1,7 @@
 #Mason Chandler
 #Level 04 Assignment
 
-#Input
+#Setup + Input
 from statistics import mean
 expenses = []
 number_expenses = 0
