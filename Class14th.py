@@ -1,13 +1,10 @@
-#Mason Chandler
-# Practice Loops
+blah = [1, 7, 19, 22, 24, 8]
 
-iRows = int(input("How many rows would you like: "))
-
-for i in range (1, iRows + 1, 1):
-    for j in range (1, i + 1) :
-        print (j, end = " ")
-    print()
-
+for number in blah :
+    if (number % 2 == 0) :
+        print(f"{number} is even")
+    else :
+        print (f"{number} is odd")
 
 
 

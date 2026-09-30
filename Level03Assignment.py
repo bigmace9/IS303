@@ -48,3 +48,4 @@ while playing:
         playing = False
 
         #change for git
+        print("Nice job")
