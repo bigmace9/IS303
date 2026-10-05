@@ -16,5 +16,5 @@ player_choice = input("Pick Rock, Paper, Scissors: ")
 options = ("Rock", "Paper", "Scissors" )
 computer_choice = random.choice(options)
 
-print (computer_choice)
-print (player_choice)
+print (f'Computer choice: {computer_choice}')
+print (f'Your choice: {player_choice}')
