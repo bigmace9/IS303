@@ -3,18 +3,25 @@
 
 #Start of the Game
 import random
-intro = float(input("Welcome to Rock, Paper, Scissors!\n How many rounds would you like to play: "))
+intro = input("Welcome to Rock, Paper, Scissors!\n How many rounds would you like to play: ")
 
-if intro % 2 == 0 :
+#Filtering to valid inputs
+if not intro.isdigit():
+    print("Invalid. Please enter an odd NUMBER")
+    intro = input("How many rounds would you like to play: ")
+elif int(intro) % 2 == 0 :
     print("Invalid. Please enter an odd number ")
     intro = input("How many rounds would you like to play: ")
 else :
     print ("Let's play!")
 
-#Gameplay
+#Choice
 player_choice = input("Pick Rock, Paper, Scissors: ")
 options = ("Rock", "Paper", "Scissors" )
 computer_choice = random.choice(options)
 
-print (f'Computer choice: {computer_choice}')
+#Computing the Answer
+
+
+print (f'The computer chose: {computer_choice}')
 print (f'Your choice: {player_choice}')
