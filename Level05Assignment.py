@@ -3,7 +3,7 @@
 
 #Custom Functions
 def get_player_choice () :
-    player = input("Pick Rock, Paper, or Scissors: ").lower()
+    player = input("\nPick Rock, Paper, or Scissors: ").lower()
     while player not in ["rock", "paper", "scissors"] : 
         print ("Invalid, Please try again")
         player = input("Pick Rock, Paper, or Scissors: ").lower()
@@ -26,15 +26,33 @@ intro = input("Welcome to Rock, Paper, Scissors!\n How many rounds would you lik
 while not intro.isdigit() or int(intro) % 2 == 0 :
     print ("Invalid. Please enter an odd NUMBER: ")
     intro = input("How many rounds would you like to play: ")
-print ("Let's play!")
+print ("\nLet's play!")
 
-#Choice
-player = get_player_choice()
-computer = random.choice(options)
+wins = 0 
+losses = 0
 
-result = determine_winner(player,computer)
+#Gameplay
+rounds = int(intro)
+while wins + losses < rounds:
+    player = get_player_choice()
+    computer = random.choice(options)
+    print(f'Computer chose: {computer}')
+    result = determine_winner(player,computer)
+    if result == "win" :
+        print("You won!")
+        wins += 1
+    elif result == "loss" :
+        print("You lost! Bummer!")
+        losses += 1
+    else:
+        print ("Tie, Try Again!")
 
-print(result)
 
+#Final Output
+print (f'\nEnding score - You won: {wins}| Computer won: {losses}')
+if wins > losses:
+    print ("You won!")
+else:
+    print ("You lost!")
+print("Thanks for playing - play again!")
 
-#Computing the Answer
