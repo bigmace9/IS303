@@ -24,7 +24,7 @@ def choose_word():
 # Reject guesses that have already been used.
 
 def get_guess(guessed):
-    while true:
+    while True:
         player_guess = input("Enter your 5 letter guess here: ").strip().lower()
         if len(player_guess) != 5 or not player_guess.isalpha():
             print("Invalid. Your guess needs to be 5 letters")
