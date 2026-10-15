@@ -23,16 +23,20 @@ def choose_word():
 # get_guess() – Gets and validates the player’s guess. Require each guess to contain exactly five letters.
 # Reject guesses that have already been used.
 
-def get_guess(guessed):
-    while True:
-        player_guess = input("Enter your 5 letter guess here: ").strip().lower()
-        if len(player_guess) != 5 or not player_guess.isalpha():
-            print("Invalid. Your guess needs to be 5 letters")
-        elif player_guess in guessed:
-            print("You've already guessed that, try again.")
-        else:
-            return player_guess
+def get_guess(player_guess):
+    validated = True
+    while validated:
+        try:
+            if player_guess.isalpha():
+                print ("Good guess!")
+                validated = False
+        except:
+            print("Invalid Guess. Try Again. 5 Letter word. ")
+            player_guess = input("Enter your guess here: ")
 
 
-value = get_guess()
+player_guess = input("Enter your Guess here: ")
+value = get_guess(player_guess)
 print (value)
+
+
