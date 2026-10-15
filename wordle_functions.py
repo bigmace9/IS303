@@ -50,10 +50,29 @@ def evaluate_guess(guess, answer):
     return result
 
 #Display Guess, Displays the guess and its feedback.
-def display_guess(result):
-    
+def display_guess(guess, result ): 
+    #Display Guess
+    guess = guess.upper()
+    guess = " ".join(guess)
+    #Display Result
+    result = " ".join(result)
+    return guess + "\n" + result
 
+#has_won Determines whether the player has guessed the word
 
+def has_won(guess, answer):
+    guess = guess.lower()
+    answer = answer.lower()
+    if guess == answer :
+        print("You guessed it! God job!")
+    else:
+        print ("Not quite, keep guessing!")
+
+guess = "trail"
+answer = "audio"
+
+won = has_won(guess, answer)
+print(won)
 
 
 
