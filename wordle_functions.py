@@ -1,7 +1,7 @@
 #Mason Chandler
 #Level 06/07 Assignment
 
-# Functions: choose_word(), get_guess(), evaluate_guess(), display_guess(), has_won()
+# Functions: choose_word(), get_guess(), , display_guess(), has_won()
 import random
 
 def choose_word():
@@ -23,20 +23,37 @@ def choose_word():
 # get_guess() – Gets and validates the player’s guess. Require each guess to contain exactly five letters.
 # Reject guesses that have already been used.
 
-def get_guess(player_guess):
-    validated = True
-    while validated:
+def get_guess():
+    while True:
         try:
-            if player_guess.isalpha():
-                print ("Good guess!")
-                validated = False
-        except:
-            print("Invalid Guess. Try Again. 5 Letter word. ")
-            player_guess = input("Enter your guess here: ")
+            player_guess = input("Please enter a 5 letter word:")
+            if not (player_guess.isalpha and len(player_guess) == 5):
+                raise ValueError
+            print ("Good guess!")
+            return(player_guess)
+        except ValueError:
+            print("Invalid Guess. Enter a 5 letter word.")
+
+#evaluate_guess() Compares the guess with the secret word and returns feedback, pass #1, find greens, pass #2 find yellows
+def evaluate_guess(guess, answer):
+    guess = guess.lower()
+    answer = answer.lower()
+    result = []
+
+    for i in range (5):
+        if guess[i] == answer [i] :
+            result.append("G")
+        elif guess[i] in answer:
+            result.append("Y")
+        else:
+            result.append("-")
+    return result
+
+#Display Guess, Displays the guess and its feedback.
+def display_guess(result):
+    
 
 
-player_guess = input("Enter your Guess here: ")
-value = get_guess(player_guess)
-print (value)
+
 
 
