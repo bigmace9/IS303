@@ -68,11 +68,6 @@ def has_won(guess, answer):
     else:
         print ("Not quite, keep guessing!")
 
-guess = "trail"
-answer = "audio"
-
-won = has_won(guess, answer)
-print(won)
 
 
 
