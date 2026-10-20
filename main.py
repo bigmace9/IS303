@@ -9,11 +9,45 @@ print("\nGuess the 5 Letter Word")
 print("\nG = Correct letter and placement\nY = Correct letter, wrong placement\n- = Wrong placement, wrong latter")
 
 #Choices being made 
-computer_choice = choose_word()
-player_guess = get_guess()
-check_guess = evaluate_guess(player_guess, computer_choice)
-show_result = display_guess(player_guess, check_guess)
-win = has_won (player_guess, computer_choice)
+game_play = True
 
-print (show_result)
-print (win)
+while game_play:
+    computer_choice = choose_word()
+    win = False
+
+    print(computer_choice)
+
+    for i in range(6) :
+            player_guess = get_guess()
+            check_guess = evaluate_guess(player_guess, computer_choice)
+            show_result = display_guess(player_guess, check_guess)
+            print(show_result)
+            if has_won(player_guess, computer_choice):
+                 win = True
+                 break
+
+    if win == True:
+        print ("You guessed it!")
+    else:
+         print (f'Close! The answer was {computer_choice}')
+
+
+
+    play_again = input("Great job! Play Again? (Yes/No): ")
+    play_again = play_again.strip().lower()
+
+    if play_again == "yes":
+        print("Let's do this!")
+    else:
+        print("Thanks for playing!")
+        game_play = False
+
+
+
+
+
+
+
+
+
+
