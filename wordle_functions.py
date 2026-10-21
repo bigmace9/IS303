@@ -23,16 +23,17 @@ def choose_word():
 # get_guess() – Gets and validates the player’s guess. Require each guess to contain exactly five letters.
 # Reject guesses that have already been used.
 
-def get_guess():
+def get_guess(previous_guess):
     while True:
-        try:
             player_guess = input("Please enter a 5 letter word:")
-            if not (player_guess.isalpha and len(player_guess) == 5):
-                raise ValueError
-            print ("Good guess!")
-            return(player_guess)
-        except ValueError:
-            print("Invalid Guess. Enter a 5 letter word.")
+            player_guess = player_guess.strip()
+            if not (player_guess.isalpha() and len(player_guess) == 5):
+                print("Invalid guess. Enter a 5 LETTER number.")
+            elif player_guess in previous_guess:
+                print("You already guessed that word, try again!")
+            else:
+                previous_guess.add(player_guess)
+                return player_guess
 
 #evaluate_guess() Compares the guess with the secret word and returns feedback, pass #1, find greens, pass #2 find yellows
 def evaluate_guess(guess, answer):
@@ -51,7 +52,6 @@ def evaluate_guess(guess, answer):
 
 #Display Guess, Displays the guess and its feedback.
 def display_guess(guess, result ): 
-    #Display Guess
     guess = guess.upper()
     guess = " ".join(guess)
     #Display Result
@@ -59,15 +59,13 @@ def display_guess(guess, result ):
     return guess + "\n" + result
 
 #has_won Determines whether the player has guessed the word
-
 def has_won(guess, answer):
     guess = guess.lower()
     answer = answer.lower()
     if guess == answer :
-        print("You guessed it! God job!")
+        result = True
     else:
-        print ("Not quite, keep guessing!")
-
-
+        result = False
+    return result
 
 
