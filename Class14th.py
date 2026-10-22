@@ -1,10 +1,7 @@
-blah = [1, 7, 19, 22, 24, 8]
+class FortniteBot:
 
-for number in blah :
-    if (number % 2 == 0) :
-        print(f"{number} is even")
-    else :
-        print (f"{number} is odd")
+    def __init__(self, bot_name): #constructor
+        self.health = 100 #attribute
 
-
-
+    def take_damage(self, amount): #method
+        self.health -= amount

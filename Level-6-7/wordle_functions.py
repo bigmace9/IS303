@@ -1,18 +1,18 @@
 #Mason Chandler
 #Level 06/07 Assignment
 
-# Functions: choose_word(), get_guess(), , display_guess(), has_won()
 import random
 
+#Computer chooses random word
 def choose_word():
     word = ["about", "above", "adult", "alone", "angel",
     "baker", "beach", "blind", "bring", "brush",
     "chair", "climb", "crane", "dance", "dream",
     "earth", "faith", "flame", "ghost", "glove",
-    "grape", "habit", "house", "ideal", "jolly",
+    "grape", "habit", "house", "ideal", 
     "knife", "lemon", "light", "magic", "money",
     "night", "ocean", "party", "phone", "plant",
-    "queen", "quick", "radio", "river", "salty",
+    "quick", "radio", "salty",
     "smile", "stone", "table", "tiger", "uncle",
     "voice", "water", "wheat", "young", "zebra",]
 
@@ -26,16 +26,16 @@ def choose_word():
 def get_guess(previous_guess):
     while True:
             player_guess = input("Please enter a 5 letter word:")
-            player_guess = player_guess.strip()
+            player_guess = player_guess.strip().lower()
             if not (player_guess.isalpha() and len(player_guess) == 5):
-                print("Invalid guess. Enter a 5 LETTER number.")
+                print("Invalid guess. Enter a 5 LETTER word.")
             elif player_guess in previous_guess:
                 print("You already guessed that word, try again!")
             else:
-                previous_guess.add(player_guess)
+                previous_guess.append(player_guess)
                 return player_guess
 
-#evaluate_guess() Compares the guess with the secret word and returns feedback, pass #1, find greens, pass #2 find yellows
+#evaluate_guess() Compares the guess with the secret word and returns feedback
 def evaluate_guess(guess, answer):
     guess = guess.lower()
     answer = answer.lower()
@@ -56,7 +56,7 @@ def display_guess(guess, result ):
     guess = " ".join(guess)
     #Display Result
     result = " ".join(result)
-    return guess + "\n" + result
+    return "Guess:" + "\t" + guess + "\n" + "Feedback:" + result
 
 #has_won Determines whether the player has guessed the word
 def has_won(guess, answer):
